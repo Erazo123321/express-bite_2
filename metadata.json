@@ -1,0 +1,6 @@
+{
+  "name": "ExpressBite - Clean Architecture & SOLID Cafeteria",
+  "description": "Sistema de gestión y pedidos de cafetería universitaria diseñado con Clean Architecture y principios SOLID, incluyendo entidades Product y Order, repositorios y casos de uso desacoplados.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
