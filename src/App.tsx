@@ -3,6 +3,7 @@ import { Header, ActiveTab } from './presentation/components/Header.tsx';
 import { StudentView } from './presentation/components/student/StudentView.tsx';
 import { StaffView } from './presentation/components/staff/StaffView.tsx';
 import { CleanArchitectureExplorer } from './presentation/components/architecture/CleanArchitectureExplorer.tsx';
+import { RestApiExplorer } from './presentation/components/api/RestApiExplorer.tsx';
 import { NotificationToast } from './presentation/components/NotificationToast.tsx';
 import { useCafeteria } from './presentation/hooks/useCafeteria.ts';
 import { ProductDTO } from './core/application/dtos/ProductDTO.ts';
@@ -18,6 +19,7 @@ export default function App() {
     notifications,
     auditLogs,
     error,
+    refreshData,
     placeOrder,
     updateProductStock,
     markOrderAsDelivered,
@@ -87,6 +89,14 @@ export default function App() {
 
         {activeTab === 'architecture' && (
           <CleanArchitectureExplorer auditLogs={auditLogs} />
+        )}
+
+        {activeTab === 'rest-api' && (
+          <RestApiExplorer
+            products={products}
+            orders={allOrders}
+            onRefreshAll={refreshData}
+          />
         )}
       </main>
 

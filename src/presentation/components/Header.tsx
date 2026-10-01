@@ -1,7 +1,7 @@
 import React from 'react';
-import { Coffee, Smartphone, Monitor, ShieldCheck } from 'lucide-react';
+import { Coffee, Smartphone, Monitor, ShieldCheck, Globe } from 'lucide-react';
 
-export type ActiveTab = 'student' | 'admin' | 'architecture';
+export type ActiveTab = 'student' | 'admin' | 'architecture' | 'rest-api';
 
 interface HeaderProps {
   activeTab: ActiveTab;
@@ -43,11 +43,11 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
 
-        {/* View Switcher Tabs (Student / Staff / Architecture) */}
+        {/* View Switcher Tabs (Student / Staff / Architecture / Next.js REST) */}
         <div className="flex items-center p-1 bg-gray-100 rounded-[12px] border border-gray-200/70 shadow-inner max-w-full overflow-x-auto">
           <button
             onClick={() => onTabChange('student')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-[10px] transition-all duration-200 whitespace-nowrap ${
+            className={`flex items-center gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-[10px] transition-all duration-200 whitespace-nowrap cursor-pointer ${
               activeTab === 'student'
                 ? 'bg-white text-gray-900 shadow-xs'
                 : 'text-gray-600 hover:text-gray-900'
@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={() => onTabChange('admin')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-[10px] transition-all duration-200 whitespace-nowrap ${
+            className={`flex items-center gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-[10px] transition-all duration-200 whitespace-nowrap cursor-pointer ${
               activeTab === 'admin'
                 ? 'bg-white text-gray-900 shadow-xs'
                 : 'text-gray-600 hover:text-gray-900'
@@ -71,14 +71,26 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={() => onTabChange('architecture')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-[10px] transition-all duration-200 whitespace-nowrap ${
+            className={`flex items-center gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-[10px] transition-all duration-200 whitespace-nowrap cursor-pointer ${
               activeTab === 'architecture'
                 ? 'bg-white text-gray-900 shadow-xs'
                 : 'text-gray-600 hover:text-gray-900'
             }`}
           >
             <ShieldCheck className={`w-4 h-4 ${activeTab === 'architecture' ? 'text-emerald-600' : 'text-gray-500'}`} />
-            <span>Clean & SOLID <span className="hidden sm:inline font-normal text-gray-500">(Arquitectura)</span></span>
+            <span>Clean & SOLID</span>
+          </button>
+
+          <button
+            onClick={() => onTabChange('rest-api')}
+            className={`flex items-center gap-2 px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-[10px] transition-all duration-200 whitespace-nowrap cursor-pointer ${
+              activeTab === 'rest-api'
+                ? 'bg-white text-gray-900 shadow-xs'
+                : 'text-gray-600 hover:text-gray-900'
+            }`}
+          >
+            <Globe className={`w-4 h-4 ${activeTab === 'rest-api' ? 'text-emerald-600' : 'text-gray-500'}`} />
+            <span>Next.js REST API</span>
           </button>
         </div>
 
